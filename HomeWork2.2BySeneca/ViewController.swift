@@ -42,6 +42,10 @@ class ViewController: UIViewController {
         greenSlider.minimumTrackTintColor = .green
         blueSlider.minimumTrackTintColor = .blue
         
+        redSlider.thumbTintColor = .black
+        greenSlider.thumbTintColor = .black
+        blueSlider.thumbTintColor = .black
+        
         assignMainViewColor()
     }
 
