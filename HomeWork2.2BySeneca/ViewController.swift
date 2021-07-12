@@ -49,12 +49,15 @@ class ViewController: UIViewController {
         assignMainViewColor()
     }
 
-    @IBAction func allSlidersAction() {
+    @IBAction func allSlidersAction(_ sender: UISlider) {
         assignMainViewColor()
         
-        redValueLabel.text = String(format: "%.2f", redSlider.value)
-        greenValueLabel.text = String(format: "%.2f", greenSlider.value)
-        blueValueLabel.text = String(format: "%.2f", blueSlider.value)
+        switch sender {
+        case redSlider: redValueLabel.text = getValueFromSlider(from: redSlider)
+        case greenSlider: greenValueLabel.text = getValueFromSlider(from: greenSlider)
+        default:
+            blueValueLabel.text = getValueFromSlider(from: blueSlider)
+        }
     }
     
     private func assignMainViewColor() {
@@ -63,6 +66,10 @@ class ViewController: UIViewController {
             green: CGFloat(greenSlider.value),
             blue: CGFloat(blueSlider.value),
             alpha: 1)
+    }
+    
+    private func getValueFromSlider(from slider: UISlider) -> String {
+        String(format: "%.2f", slider.value)
     }
 }
 
